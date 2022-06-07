@@ -1,0 +1,11 @@
+Host y-miyazaki-1-spot
+  HostName i-xxxxxxxxxxxxxx
+  User ec2-user
+  Port 22
+  StrictHostKeyChecking no
+  TCPKeepAlive yes
+  IdentityFile ~/.ssh/id_rsa_example
+  IdentitiesOnly yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+  ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p
